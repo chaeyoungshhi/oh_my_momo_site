@@ -1,0 +1,220 @@
+/* ===== OH MY MOMO! — Global Design System ===== */
+/* Brand: Olive Green × Warm Cream × Saffron Gold   */
+
+:root {
+  /* ── Core Brand Palette ── */
+  --clr-primary:       #4A7C59;
+  --clr-primary-dark:  #34583F;
+  --clr-primary-light: #6B9E7A;
+  --clr-primary-xlight:#EBF3ED;
+  --clr-accent:        #E8A838;
+  --clr-accent-dark:   #C68A1A;
+  --clr-accent-light:  #FEF3D9;
+  --clr-spicy:         #D94F2B;
+  --clr-spicy-light:   #FDEEE9;
+
+  /* ── Background & Surface ── */
+  --clr-bg:            #FAFAF7;
+  --clr-bg-alt:        #F2F2EC;
+  --clr-surface:       #FFFFFF;
+
+  /* ── Text ── */
+  --clr-text:          #1C1C1A;
+  --clr-text-muted:    #6B6B62;
+  --clr-text-light:    #A8A89E;
+
+  /* ── Borders ── */
+  --clr-border:        #E4E4DC;
+
+  /* ── Semantic ── */
+  --clr-veg:     #2E7D32;
+  --clr-nonveg:  #C62828;
+  --clr-success: #2E7D32;
+
+  /* ── Typography ── */
+  --font-display: 'Syne', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  /* ── Spacing ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* ── Shadows ── */
+  --shadow-xs:   0 1px 3px rgba(28,28,26,0.06);
+  --shadow-sm:   0 2px 8px rgba(28,28,26,0.08);
+  --shadow-md:   0 4px 20px rgba(28,28,26,0.10);
+  --shadow-lg:   0 12px 40px rgba(28,28,26,0.14);
+  --shadow-xl:   0 24px 60px rgba(28,28,26,0.18);
+  --shadow-card: 0 2px 12px rgba(74,124,89,0.08);
+  --shadow-card-hover: 0 16px 48px rgba(74,124,89,0.18);
+
+  /* ── Radii ── */
+  --radius-xs:   4px;
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-full: 9999px;
+
+  /* ── Motion ── */
+  --ease-both:       cubic-bezier(0.4, 0.0, 0.2, 1);
+  --transition:      0.22s cubic-bezier(0.4, 0.0, 0.2, 1);
+  --transition-slow: 0.38s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  --navbar-h: 72px;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width:100%; display:block; object-fit:cover; }
+a   { color:inherit; text-decoration:none; }
+button { cursor:pointer; border:none; background:none; font-family:inherit; }
+input, textarea, select { font-family:inherit; }
+ul, ol { list-style:none; }
+
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--clr-bg-alt); }
+::-webkit-scrollbar-thumb { background:var(--clr-primary-light); border-radius:3px; }
+
+/* ===== LAYOUT ===== */
+.container { max-width:1200px; margin:0 auto; padding:0 var(--space-lg); }
+.page { padding-top:var(--navbar-h); min-height:100vh; }
+
+/* ===== TYPOGRAPHY ===== */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem,4vw,2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--clr-text);
+}
+.section-subtitle {
+  font-size:1rem;
+  color:var(--clr-text-muted);
+  margin-top:var(--space-sm);
+  line-height:1.65;
+}
+.section-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--clr-primary-xlight);
+  color:var(--clr-primary);
+  font-size:0.73rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:5px 14px;
+  border-radius:var(--radius-full);
+  margin-bottom:var(--space-md);
+  border:1px solid rgba(74,124,89,0.18);
+}
+.section-header { text-align:center; margin-bottom:var(--space-2xl); }
+
+/* ===== BADGE ===== */
+.badge {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:3px 10px; border-radius:var(--radius-full);
+  font-size:0.72rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+}
+.badge-veg    { background:#E8F5E9; color:var(--clr-veg);    border:1px solid #A5D6A7; }
+.badge-nonveg { background:#FFEBEE; color:var(--clr-nonveg); border:1px solid #EF9A9A; }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:var(--space-sm); padding:12px 26px;
+  border-radius:var(--radius-full); font-size:0.9rem; font-weight:600;
+  letter-spacing:0.01em; transition:var(--transition); cursor:pointer;
+  border:none; font-family:var(--font-body);
+}
+.btn-primary  { background:var(--clr-primary); color:#fff; box-shadow:0 4px 14px rgba(74,124,89,0.30); }
+.btn-primary:hover  { background:var(--clr-primary-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(74,124,89,0.38); }
+.btn-outline  { background:transparent; color:var(--clr-primary); border:2px solid var(--clr-primary); }
+.btn-outline:hover  { background:var(--clr-primary); color:#fff; transform:translateY(-2px); }
+.btn-accent   { background:var(--clr-accent); color:var(--clr-text); box-shadow:0 4px 14px rgba(232,168,56,0.30); }
+.btn-accent:hover   { background:var(--clr-accent-dark); transform:translateY(-2px); color:#fff; }
+.btn-ghost    { background:var(--clr-primary-xlight); color:var(--clr-primary); border:1px solid rgba(74,124,89,0.15); }
+.btn-ghost:hover    { background:rgba(74,124,89,0.15); }
+.btn-danger   { background:#FFEBEE; color:var(--clr-nonveg); border:1px solid #EF9A9A; }
+.btn-danger:hover   { background:var(--clr-nonveg); color:#fff; }
+.btn-sm  { padding:8px 18px;  font-size:0.82rem; }
+.btn-lg  { padding:15px 36px; font-size:0.97rem; }
+.btn-xl  { padding:18px 48px; font-size:1.05rem; }
+
+/* ===== CARD ===== */
+.card {
+  background:var(--clr-surface); border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-card); overflow:hidden;
+  transition:transform var(--transition), box-shadow var(--transition);
+  border:1px solid var(--clr-border);
+}
+.card:hover { transform:translateY(-5px); box-shadow:var(--shadow-card-hover); }
+
+/* ===== FORMS ===== */
+.form-group { display:flex; flex-direction:column; gap:6px; margin-bottom:var(--space-md); }
+.form-group label { font-weight:600; font-size:0.85rem; color:var(--clr-text); }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding:12px 16px; border:1.5px solid var(--clr-border);
+  border-radius:var(--radius-sm); font-size:0.93rem;
+  color:var(--clr-text); background:var(--clr-surface);
+  transition:var(--transition); outline:none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color:var(--clr-primary);
+  box-shadow:0 0 0 3px var(--clr-primary-xlight);
+}
+.form-error { font-size:0.78rem; color:var(--clr-spicy); font-weight:500; margin-top:2px; display:block; }
+
+/* ===== EMPTY STATE ===== */
+.empty-state { text-align:center; padding:var(--space-3xl) var(--space-lg); }
+.empty-state .emoji { font-size:4.5rem; margin-bottom:var(--space-lg); display:block; }
+.empty-state h3 { font-family:var(--font-display); font-size:1.7rem; margin-bottom:var(--space-md); }
+.empty-state p  { color:var(--clr-text-muted); margin-bottom:var(--space-xl); }
+
+/* ===== MISC ===== */
+.stars   { color:var(--clr-accent); letter-spacing:1px; }
+.divider { height:1px; background:var(--clr-border); margin:var(--space-lg) 0; }
+
+/* ===== TOAST ===== */
+.toast-container { position:fixed; bottom:24px; right:24px; z-index:9999; display:flex; flex-direction:column; gap:10px; }
+.toast {
+  background:var(--clr-text); color:#fff; padding:12px 20px;
+  border-radius:var(--radius-md); font-size:0.88rem; font-weight:500;
+  box-shadow:var(--shadow-xl); animation:slideInToast 0.3s both;
+  display:flex; align-items:center; gap:10px; max-width:300px;
+}
+.toast.success { border-left:4px solid var(--clr-primary); }
+.toast.error   { border-left:4px solid var(--clr-spicy); }
+@keyframes slideInToast { from{transform:translateX(120%);opacity:0} to{transform:translateX(0);opacity:1} }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp  { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+@keyframes float   { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(2deg)} }
+@keyframes pulse-ring { 0%{transform:scale(0.8);opacity:0.6} 100%{transform:scale(1.4);opacity:0} }
+@keyframes bounceIn { 0%{transform:scale(0);opacity:0} 60%{transform:scale(1.15)} 100%{transform:scale(1);opacity:1} }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.animate-fadeUp { animation:fadeUp 0.55s both; }
+.animate-fadeIn { animation:fadeIn 0.38s both; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px) { .container{padding:0 var(--space-md);} .btn-lg{padding:13px 28px;} }

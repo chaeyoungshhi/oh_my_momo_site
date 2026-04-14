@@ -1,0 +1,85 @@
+/* ===== MomoCard ===== */
+.momo-card {
+  position:relative; display:flex; flex-direction:column;
+  border-radius:var(--radius-lg); overflow:hidden;
+  border:1px solid var(--clr-border); transition:var(--transition);
+  background:var(--clr-surface);
+}
+.momo-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-card-hover); }
+
+/* Badges */
+.momo-card__badges {
+  position:absolute; top:10px; left:10px; z-index:3;
+  display:flex; flex-direction:column; gap:4px;
+}
+.momo-card__badge {
+  padding:3px 10px; border-radius:var(--radius-full);
+  font-size:0.7rem; font-weight:700; letter-spacing:0.03em;
+}
+.momo-card__badge--hot      { background:var(--clr-spicy); color:#fff; }
+.momo-card__badge--new      { background:var(--clr-accent); color:var(--clr-text); }
+.momo-card__badge--seasonal { background:var(--clr-primary); color:#fff; }
+
+/* Wishlist */
+.momo-card__wishlist {
+  position:absolute; top:10px; right:10px; z-index:3;
+  width:32px; height:32px; border-radius:50%; border:none;
+  background:rgba(255,255,255,0.92); backdrop-filter:blur(4px);
+  font-size:0.95rem; cursor:pointer; display:flex; align-items:center;
+  justify-content:center; box-shadow:var(--shadow-sm); transition:var(--transition);
+}
+.momo-card__wishlist:hover, .momo-card__wishlist.active {
+  transform:scale(1.15); background:#fff;
+}
+
+/* Image */
+.momo-card__img-wrap {
+  display:block; position:relative; overflow:hidden; height:186px;
+}
+.momo-card__img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform var(--transition-slow);
+}
+.momo-card:hover .momo-card__img { transform:scale(1.06); }
+.momo-card__img-fallback {
+  position:absolute; inset:0; background:linear-gradient(135deg,var(--clr-bg-alt),var(--clr-primary-xlight));
+  display:flex; align-items:center; justify-content:center; font-size:5rem;
+}
+
+.momo-card__category-pill {
+  position:absolute; bottom:10px; left:10px;
+  background:rgba(28,28,26,0.72); color:#fff;
+  padding:3px 10px; border-radius:var(--radius-full);
+  font-size:0.68rem; font-weight:700; letter-spacing:0.06em;
+  text-transform:uppercase; backdrop-filter:blur(4px);
+}
+
+/* Body */
+.momo-card__body { padding:var(--space-md); display:flex; flex-direction:column; gap:7px; flex:1; }
+
+.momo-card__meta-top { display:flex; align-items:center; justify-content:space-between; }
+.momo-card__spicy { font-size:0.8rem; letter-spacing:-1px; }
+
+.momo-card__name {
+  font-family:var(--font-display); font-size:1.05rem; font-weight:800;
+  color:var(--clr-text); line-height:1.2; transition:color var(--transition);
+}
+.momo-card__name:hover { color:var(--clr-primary); }
+
+.momo-card__desc {
+  font-size:0.8rem; color:var(--clr-text-muted); line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+.momo-card__rating { display:flex; align-items:center; gap:5px; font-size:0.76rem; color:var(--clr-text-muted); }
+.momo-card__rating .stars { font-size:0.82rem; letter-spacing:1px; }
+.momo-card__serving { font-size:0.74rem; color:var(--clr-text-light); }
+
+.momo-card__footer {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:auto; padding-top:var(--space-sm); border-top:1px solid var(--clr-border);
+}
+.momo-card__price { display:flex; align-items:baseline; gap:6px; }
+.momo-card__price-now { font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--clr-primary); }
+.momo-card__price-was { font-size:0.82rem; color:var(--clr-text-light); text-decoration:line-through; }
+.momo-card__add { padding:7px 16px; font-size:0.82rem; }
